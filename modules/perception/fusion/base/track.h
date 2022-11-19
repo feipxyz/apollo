@@ -30,6 +30,10 @@ namespace fusion {
 
 typedef std::map<std::string, SensorObjectPtr> SensorId2ObjectMap;
 
+// 单个Object的Track信息存放
+// 主要包括SensorId2ObjectMap的对象camera/lidar/radar_objects_(观测结果)，
+// fused_object_（融合结果），
+// s_track_idx_
 class Track {
  public:
   Track();
@@ -134,9 +138,11 @@ class Track {
                                               double measurement_timestamp);
 
  protected:
+  // 比如左面lidar（sensor_id = "lidar_left"）看到了, 并且右面lidar（sensor_id = "lidar_right"）也看到了，
+  // 并且他们被同一个track跟踪了。就会被记录在下方的三个map中。不用unordered_map的原因可能是map查找快，为log(N)。
   SensorId2ObjectMap lidar_objects_;
   SensorId2ObjectMap radar_objects_;
-  SensorId2ObjectMap camera_objects_;
+  SensorId2ObjectMap camera_objects_; // 所有的Camera各自与当前track关联过的最新历史object
 
   FusedObjectPtr fused_object_ = nullptr;
   double tracking_period_ = 0.0;

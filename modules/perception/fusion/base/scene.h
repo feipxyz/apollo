@@ -26,6 +26,7 @@ namespace apollo {
 namespace perception {
 namespace fusion {
 
+// 此类保存两个tracks的队列
 class Scene {
  public:
   Scene();

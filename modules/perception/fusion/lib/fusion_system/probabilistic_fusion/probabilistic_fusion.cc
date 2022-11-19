@@ -182,6 +182,7 @@ void ProbabilisticFusion::FuseForegroundTrack(const SensorFramePtr& frame) {
 
   AssociationOptions options;
   AssociationResult association_result;
+  // 计算匹配关系
   matcher_->Associate(options, frame, scenes_, &association_result);
   PERF_BLOCK_END_WITH_INDICATOR(indicator, "association");
 

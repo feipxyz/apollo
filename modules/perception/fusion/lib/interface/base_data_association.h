@@ -36,8 +36,8 @@ struct AssociationResult {
   std::vector<TrackMeasurmentPair> assignments;
   std::vector<size_t> unassigned_tracks;
   std::vector<size_t> unassigned_measurements;
-  std::vector<double> track2measurements_dist;
-  std::vector<double> measurement2track_dist;
+  std::vector<double> track2measurements_dist;  // 以track顺序索引的最小距离
+  std::vector<double> measurement2track_dist;   // 以观测顺序为索引的最小距离
 };
 
 class BaseDataAssociation {

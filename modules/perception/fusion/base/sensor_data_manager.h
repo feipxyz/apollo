@@ -60,6 +60,7 @@ class SensorDataManager {
 
  private:
   bool inited_ = false;
+  // 多个传感器的历史帧
   std::unordered_map<std::string, SensorPtr> sensors_;
 
   const common::SensorManager* sensor_manager_ = nullptr;

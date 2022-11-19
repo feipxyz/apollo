@@ -29,6 +29,8 @@ namespace apollo {
 namespace perception {
 namespace fusion {
 
+// 把结构体Object和SensorFrameHead组合在一起，形成SensorObject
+// 目的是为了把Obj和FrameHead可以捆绑，获取Frame Pose，timestamp，sensor ID/type等等。新增成员变量
 class SensorObject {
  public:
   SensorObject() = delete;

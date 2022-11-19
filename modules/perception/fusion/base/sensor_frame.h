@@ -29,6 +29,7 @@ namespace apollo {
 namespace perception {
 namespace fusion {
 
+// 此结构体用于保存传感器的信息
 struct SensorFrameHeader {
   base::SensorInfo sensor_info;
   double timestamp = 0.0;
@@ -42,6 +43,7 @@ struct SensorFrameHeader {
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 } EIGEN_ALIGN16;
 
+// 此结构体用于保存一帧的所有目标
 class SensorFrame {
  public:
   SensorFrame();
@@ -96,7 +98,7 @@ class SensorFrame {
   base::RadarFrameSupplement radar_frame_supplement_;
   base::CameraFrameSupplement camera_frame_supplement_;
 
-  SensorFrameHeaderPtr header_ = nullptr;
+  SensorFrameHeaderPtr header_ = nullptr;  // 表示obstacle所属的传感器信息
 };
 
 }  // namespace fusion
